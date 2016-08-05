@@ -430,6 +430,18 @@ ul.nav-sub {
 	-ms-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
 }
+/*jumbotron*/
+.jumbotron {
+    /* add bootstrap jumbotron background image */
+    background:;
+    /* change bootstrap jumbotron text color */
+    color: black;
+    text-align: center;
+    
+}
+.jumbotron.h1{
+   text-align:center;
+}
 /*-- banner--*/
 .banner-img {
     background: url(../images/1.jpg)no-repeat center;
@@ -592,6 +604,39 @@ a.w3-search:hover {
     background: none;
     -webkit-appearance: none;
 	margin-bottom: 0.8em;
+}
+.footericons ul li{
+    display: inline-block;
+    width: 30%;
+    list-style-type: none;
+    padding:28px 0 10px;
+    border-left:1px solid #BFBFBF;
+}
+.footericons ul li a{
+    background: #47B7E8;
+    padding:16px 30px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    }
+.footericons ul li i{
+    color:#fff;
+    font-size:17px;
+}
+.footericons {
+    margin-bottom: 30px;
+    background: #f7f7f7;
+    border-bottom:1px solid #BFBFBF;   
+
+}
+.footericons ul li p {
+    margin-top: 22px;
+    font-size:50px;
+}
+.footericons ul li:nth-child(1) {
+    border: none;
 }
 .price {
     position: relative;
