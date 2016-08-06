@@ -432,8 +432,9 @@ ul.nav-sub {
 }
 /*jumbotron*/
 .jumbotron {
-    /* add bootstrap jumbotron background image */
-    background:;
+    /* add bootstrap jumb""otron background image */
+            background-image:url("http://gpsproductcompare.com/wp-content/uploads/2012/09/globe-gps1-325x340.png");
+            background:contain;
     /* change bootstrap jumbotron text color */
     color: black;
     text-align: center;
@@ -613,7 +614,7 @@ a.w3-search:hover {
     border-left:1px solid #BFBFBF;
 }
 .footericons ul li a{
-    background: #47B7E8;
+    background: #F7F7F7;
     padding:16px 30px;
     transition: 0.5s all;
     -webkit-transition: 0.5s all;
@@ -627,7 +628,7 @@ a.w3-search:hover {
 }
 .footericons {
     margin-bottom: 30px;
-    background: #f7f7f7;
+    background: #8b008b;
     border-bottom:1px solid #BFBFBF;   
 
 }
