@@ -300,6 +300,9 @@ ul.nav-sub {
     background-color: #6b046b;
     border: 1px solid rgba(255, 255, 255, 0.7) !important;
 }
+.white{
+    color:white;
+}
 /*-- //start scroll pane --*/
 /*-- Menu --*/
 .menu-wrap {
