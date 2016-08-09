@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Firebase Hosting</title>
+
+     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"> </script>
+
+  <script>
+    // Initialize Firebase
+    // TODO: Replace with your project's customized code snippet
+    var config = {
+    apiKey: "AIzaSyCDXJx5pcb35MKDLvX7KfHbm3mVgu7-9Hs",
+    authDomain: "my-final-project-b8d09.firebaseapp.com",
+    databaseURL: "https://my-final-project-b8d09.firebaseio.com",
+    storageBucket: "my-final-project-b8d09.appspot.com",
+  };
+  firebase.initializeApp(config);
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+ var makeAuthPlease=function(){
+  
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+  console.log(user);
+  // ...
+})
+  .catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+
+});
+}
+
+
+
+    
+
+  </script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"> </script>
+    <style media="screen">
+      body {
+        font-family: Roboto, Arial, sans-serif;
+        background: #ECEFF1;
+        color: rgba(0,0,0,0.87);
+      }
+
+      a {
+        color: rgb(3,155,229);
+      }
+
+      #message {
+        max-width: 400px;
+        margin: 40px auto;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
+        border-radius: 2px;
+        background: white;
+        padding: 16px 24px;
+      }
+
+      #message h1 {
+        font-size: 22px;
+        font-weight: 500;
+        text-align: center;
+        margin: 0 0 16px;
+      }
+
+      #message p {
+        font-weight: 300;
+        line-height: 150%;
+      }
+
+      #message ul {
+        list-style: none;
+        margin: 16px 0 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      #message li a {
+        display: inline-block;
+        padding: 8px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 500;
+        background: rgb(3,155,229);
+        color: white;
+        border: 1px solid rgb(3,155,229);
+        border-radius: 3px;
+        font-size: 14px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h1>Malaria Tracker</h1>
+      <p>you are seeing this because i am so tired!</p>
+      <!--<ul>
+        <li><a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a></li>
+      </ul>-->
+
+      <button type="button" onclick="makeAuthPlease()">New User</button>
+      
+    </div>
+  </body>
+</html>

@@ -441,6 +441,10 @@ ul.nav-sub {
 	-ms-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
 }
+
+
+
+
 /*jumbotron*/
 .jumbotron {
     /* add bootstrap jumb""otron background image */
@@ -448,7 +452,7 @@ ul.nav-sub {
             background-repeat: no-repeat;
             background:contain;
     /* change bootstrap jumbotron text color */
-    color: black;
+    color: #dfc12a;
     text-align: center;
     
 }
