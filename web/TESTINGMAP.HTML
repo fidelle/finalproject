@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mapping A Malaria Free World</title> 
+
+   
+  <!-- For-Mobile-Apps-and-Meta-Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="Fortune Estates Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, SmartPhone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+ 
+
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+  <!-- //For-Mobile-Apps-and-Meta-Tags -->
+  <!-- Custom Theme files -->
+  <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="all"> 
+  <link rel="stylesheet" href="css/ken-burns.css" type="text/css" media="all" /> 
+
+  <!-- //Custom Theme files -->
+  <!-- js -->
+  <script src="js/jquery-2.2.3.min.js"></script> 
+  <!-- //js -->
+  <!-- pop-up-box -->
+
+
+<script src="js/classie.js"></script>
+<script src="js/main.js"></script>
+<!-- //menu-js -->
+<!-- nice scroll-js -->
+<script src="js/jquery.nicescroll.min.js"></script> 
+<script>
+  $(document).ready(function() {
+      var nice = $("html").niceScroll();  // The document page (body)
+      $("#div1").html($("#div1").html()+' '+nice.version);
+      $("#boxscroll").niceScroll({cursorborder:"",cursorcolor:"#00F",boxzoom:true}); // First scrollable DIV
+    });
+  </script>
+  <!-- //nice scroll-js -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="js/bootstrap.js"></script>
+
+  <script>
+    var tD = new Date();
+    var datestr = tD.getDate() + "/" + (tD.getMonth()+ 1) + "/" + tD.getFullYear();
+    function popDate(eN) {
+      var elem = document.getElementById(eN);
+      elem.value = datestr;
+//document.forms[0].elements[eN].value = datestr;
+}
+</script>
+
+ 
+
+
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+      .controls {
+        margin-top: 10px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 300px;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+
+      .pac-container {
+        font-family: Roboto;
+      }
+
+      #type-selector {
+        color: #fff;
+        background-color: #4d90fe;
+        padding: 5px 11px 0px 11px;
+      }
+
+      #type-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+    </style>
+  
+</head>
+
+
+<body class="bg" onload="popDate('theDate')">
+<input id="pac-input" class="controls" type="text"
+        placeholder="Enter a location">
+    <div id="type-selector" class="controls">
+      <input type="radio" name="type" id="changetype-all" checked="checked">
+      <label for="changetype-all">All</label>
+
+      <input type="radio" name="type" id="changetype-establishment">
+      <label for="changetype-establishment">Establishments</label>
+
+      <input type="radio" name="type" id="changetype-address">
+      <label for="changetype-address">Addresses</label>
+
+      <input type="radio" name="type" id="changetype-geocode">
+      <label for="changetype-geocode">Geocodes</label>
+    </div>
+    <div id="map"></div>
+
+    <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.8688, lng: 151.2195},
+          zoom: 13
+        });
+        var input = /** @type {!HTMLInputElement} */(
+            document.getElementById('pac-input'));
+
+        var types = document.getElementById('type-selector');
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+          map: map,
+          anchorPoint: new google.maps.Point(0, -29)
+        });
+
+        autocomplete.addListener('place_changed', function() {
+          infowindow.close();
+          marker.setVisible(false);
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            window.alert("Autocomplete's returned place contains no geometry");
+            return;
+          }
+
+          // If the place has a geometry, then present it on a map.
+          if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+          } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Why 17? Because it looks good.
+          }
+          marker.setIcon(/** @type {google.maps.Icon} */({
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(35, 35)
+          }));
+          marker.setPosition(place.geometry.location);
+          marker.setVisible(true);
+
+          var address = '';
+          if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+
+          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+          infowindow.open(map, marker);
+        });
+
+        // Sets a listener on a radio button to change the filter type on Places
+        // Autocomplete.
+        function setupClickListener(id, types) {
+          
+            autocomplete.setTypes(types);
+          });
+        }
+
+        setupClickListener('changetype-geocode', ['geocode']);
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADwXL5prro4c4no8sFurv_6rhLVrxfYz0&libraries=places&callback=initMap"
+        async defer></script>
+<form>
+        <!--for the date-->
+        <div
+        style="position:absolute;top:100px;left:100px;width:200px; height:20px;line-height:20px;margin:0;padding:0;" style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+        <input type="text" id="theDate">
+      </div>
+    </form>
+    <!--for the date-->
+
+    <!--for the patient code-->
+    <div 
+    style="position:absolute;top:100px;left:290px;width:200px; height:20px;line-height:20px;margin:0;padding:0;" style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+    <input name="displayValue" placeholder="Patient Code" id="displayValue" >
+    <input name="idValue" id="idValue" type="hidden"
+    size="26" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="this.value=!this.value?'Patient Code':this.value;">
+  </div>
+  <!--for the patient code-->
+  <!--for treatment type-->
+  <div style="position:absolute;top:100px;left:480px;width:200px; height:20px;line-height:20px;margin:0;padding:0;" style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+    <!--for drop down-->
+    <select style="position:absolute;top:0px;left:0px;width:200px; height:26px;line-height:20px;margin:0;padding:0;" onchange="document.getElementById('displayValue').value=this.options[this.selectedIndex].text; document.getElementById('idValue').value=this.options[this.selectedIndex].value;">
+      <option></option>
+      <option value="one">x</option>
+      <option value="two">y</option>
+      <option value="three">z</option>
+    </select>
+    <input  name="displayValue" placeholder="Treatment Type" id="displayValue" style="position:absolute;top:0px;left:px;width:183px;width:180px\9;#width:180px;height:26px; height:21px\9;#height:18px;border:1px solid #556;" onfocus="this.select()" type="text">
+    <input name="idValue" id="idValue" type="hidden">
+  </div>
+  <div class="agile-main"> 
+    <div class="menu-wrap" id="style-1"> 
+      <nav class="top-nav">
+        <ul class="icon-list">
+          <li class="menu-title">Menu</li>
+          <li><a href="main.html"><i class="glyphicon glyphicon-home"></i> Home </a></li>
+          <li><a class="active" href="#"><i class="glyphicon glyphicons-file-plus"></i> Log Data </a></li>
+          <li><a href="Stats.html"><i class="glyphicon glyphicon-stats"></i> Statistics </a></li>
+          <!--<li><a href="contact.html"><i class="glyphicon glyphicon-eye-open"></i> contact </a></li>-->
+          <!--<li><a href="gallery.html"><i class="glyphicon glyphicon-picture"></i> Gallery</a></li>-->
+          
+          <li><a href="#" class="menu"><i class="glyphicon glyphicon-duplicate"></i> pages<span class="glyphicon glyphicon-menu-down"></span></a>
+          <li><a href="aboutit.html"><i class="glyphicon glyphicon-info-sign"></i> About </a></li>
+            <ul class="nav-sub">
+              <!--<li><a href="#small-dialog" class="sign-in popup-top-anim"><i class="glyphicon glyphicon-user"></i> login</a></li>                                             
+              <li><a href="#small-dialog1" class="sign-in popup-top-anim"><i class="glyphicon glyphicon-edit"></i> Sign Up</a></li>-->                                                
+              <!--<li><a href="codes.html"><i class="glyphicon glyphicon-list-alt"></i> Short Codes</a></li> -->
+            </ul>
+            <div class="clearfix"> </div>
+            <script>
+              $( "li a.menu" ).click(function() {
+                $( "ul.nav-sub" ).slideToggle( 300, function() {
+              // Animation complete.
+            });
+              });
+            </script> 
+          </li>
+          <li><a href="contactme.html"><i class="glyphicon glyphicon-envelope"></i> Contact </a></li>
+          <li><a href="settings.html"><i class="glyphicon glyphicon-cog"></i>Settings </a></li>
+        </ul>
+      </nav>
+      <button class="close-button" id="close-button">C</button>
+    </div> 
+    <div class="content-wrap">
+      <div class="header"> 
+        <div class="menu-icon">   
+          <button class="menu-button" id="open-button">O</button>
+        </div>
+        <div class="logo">
+          <h2><a href="main.html">MT</a></h2>
+        </div>
+        <div class="login">
+          <a href="#small-dialog" class="sign-in popup-top-anim"><span class="glyphicon glyphicon-PENCIL"></span></a> 
+          <!-- modal -->
+          <div id="small-dialog" class="mfp-hide">
+            <div class="login-modal">   
+              <div class="booking-info">
+                
+                  <div class="wthree-text"> 
+                    <ul> 
+                      <li>
+                        <input type="checkbox" id="brand" value="">
+                        <label for="brand"><span></span> Remember me ?</label>  
+                      </li>
+                      <li> <a href="#">Forgot password?</a> </li>
+                    </ul>
+                    <div class="clear"> </div>
+                  </div> 
+                  <input type="submit" value="Sign In">   
+                </form><!--<form action="action_page.php">-->
+                <p>Don’t have an account ?<a href="#small-dialog1" class="sign-in popup-top-anim"> Sign Up</a></p>
+              </div> 
+            </div>
+          </div>
+          
+          <!-- //modal --> 
+          <!-- modal-two -->
+          <div id="small-dialog1" class="mfp-hide">
+            <div class="login-modal">  
+              <div class="booking-info">
+                <h3><a href="main.html">Mapping Malaria</a></h3>
+              </div>
+              <div class="login-form signup-form">
+                <form action="login.php" method="get">
+                  <div class="styled-input">
+                    <input type="text" name="Username" required=""/>
+                    <label>Username</label>
+                    <span></span>
+                  </div>
+                  <div class="styled-input">
+                    <input type="text" name="email" required=""/>
+                    <label>Email</label>
+                    <span></span>
+                  </div>
+                  <div class="styled-input">
+                    <input type="password" name="Password" required=""> 
+                    <label>Password</label>
+                    <span></span>
+                  </div>  
+                  <div class="wthree-text"> 
+                    <input type="checkbox" id="brand1" value="">
+                    <label for="brand1"><span></span>I accept the terms of use</label> 
+                  </div>
+                  <input type="submit" value="Sign Up">   
+                </form> 
+              </div> 
+            </div>
+          </div>
+          <!-- //modal-two --> 
+        </div> 
+        <div class="clearfix"> </div>
+      </div>
+     
+  
+
+
+
+
+
+
+
+  
+
+    </body>
+    </html>

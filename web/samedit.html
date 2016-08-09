@@ -14,8 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Fortune Estates Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, SmartPhone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDXJx5pcb35MKDLvX7KfHbm3mVgu7-9Hs&libraries=places&callback=initMap"
-        async defer></script>
+
 
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- //For-Mobile-Apps-and-Meta-Tags -->
@@ -49,10 +48,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         height: 100%;
         margin: 0;
         padding: 0;
+        position: top 
       }
       #map {
-        height: 100%;
-        top:250px;
+        height: 50%;
+        padding-top: 400px;
+        
       }
       .controls {
         margin-top: 10px;
@@ -96,7 +97,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         font-weight: 300;
       }
     </style>
-
 
 
 </head>
@@ -207,36 +207,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div> 
 				<div class="clearfix"> </div>
 			</div>
+			<div style="height: 100px;">
 			<form>
 				<!--for the date-->
 				<div
-				style="position:absolute;top:100px;left:100px;width:200px; height:20px;line-height:20px;margin:0;padding:0;" style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+				style="position:absolute;top:100px;left:100px;width:200px; height:20px;line-height:20px;margin:0;padding:0;">
 				<input type="text" id="theDate">
-			</div>
+				</div>
 		</form>
 		<!--for the date-->
 
 		<!--for the patient code-->
 		<div 
-		style="position:absolute;top:100px;left:290px;width:200px; height:20px;line-height:20px;margin:0;padding:0;" style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
-		<input name="displayValue" placeholder="Patient Code" id="displayValue" >
-		<input name="idValue" id="idValue" type="hidden"
-		size="26" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="this.value=!this.value?'Patient Code':this.value;">
-	</div>
+    style="position:absolute;top:100px;left:290px;width:200px; height:20px;line-height:20px;margin:0;padding:0;" style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+    <input name="displayValue" placeholder="Patient Code" id="idvalue" >
+    <input name="idValue" id="idValue" type="hidden"
+    size="26" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="this.value=!this.value?'Patient Code':this.value;">
+  </div>
 	<!--for the patient code-->
 	<!--for treatment type-->
 	<div style="position:absolute;top:100px;left:480px;width:200px; height:20px;line-height:20px;margin:0;padding:0;" style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
-		<!--for drop down-->
-		<select style="position:absolute;top:0px;left:0px;width:200px; height:26px;line-height:20px;margin:0;padding:0;" onchange="document.getElementById('displayValue').value=this.options[this.selectedIndex].text; document.getElementById('idValue').value=this.options[this.selectedIndex].value;">
-			<option></option>
-			<option value="one">x</option>
-			<option value="two">y</option>
-			<option value="three">z</option>
-		</select>
-		<input  name="displayValue" placeholder="Treatment Type" id="displayValue" style="position:absolute;top:0px;left:px;width:183px;width:180px\9;#width:180px;height:26px; height:21px\9;#height:18px;border:1px solid #556;" onfocus="this.select()" type="text">
-		<input name="idValue" id="idValue" type="hidden">
+    <!--for drop down-->
+    <select style="position:absolute;top:0px;left:0px;width:200px; height:26px;line-height:20px;margin:0;padding:0;" onchange="document.getElementById('displayValue').value=this.options[this.selectedIndex].text; document.getElementById('idValue').value=this.options[this.selectedIndex].value;">
+      <option></option>
+      <option value="one">x</option>
+      <option value="two">y</option>
+      <option value="three">z</option>
+    </select>
+    <input  name="displayValue" placeholder="Treatment Type" id="displayValue" style="position:absolute;top:0px;left:px;width:183px;width:180px\9;#width:180px;height:26px; height:21px\9;#height:18px;border:1px solid #556;" onfocus="this.select()" type="text">
+    </div>
 	</div>
-
 	
 	
 	<input id="pac-input" class="controls" type="text"
@@ -336,7 +336,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         setupClickListener('changetype-geocode', ['geocode']);
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDXJx5pcb35MKDLvX7KfHbm3mVgu7-9Hs&libraries=places&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADwXL5prro4c4no8sFurv_6rhLVrxfYz0&libraries=places&callback=initMap"
         async defer></script>
 
 
